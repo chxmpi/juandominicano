@@ -150,6 +150,68 @@
   .addr b{display:block; color:var(--ink); font-family:'Archivo Black'; font-size:1.1rem; margin-bottom:4px;}
   @media (max-width:760px){ .visit .grid{grid-template-columns:1fr;} }
 
+  /* POR QUÉ ELEGIRNOS */
+  .why{border-top:1px solid var(--line);}
+  .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:40px;}
+  .why-card{background:var(--bg-2); padding:28px 22px;}
+  .why-card svg{width:30px; height:30px; margin-bottom:14px;}
+  .why-card h4{font-family:'Archivo Black'; font-size:.98rem; margin-bottom:8px;}
+  .why-card p{color:var(--ink-dim); font-size:.88rem; margin:0;}
+  @media (max-width:760px){ .why-grid{grid-template-columns:repeat(2,1fr);} }
+
+  /* EQUIPO DETALLADO */
+  .team{border-top:1px solid var(--line); background:var(--bg-2);}
+  .team h2{font-size:2.1rem;}
+  .team .sub{color:var(--ink-dim); margin-top:10px; max-width:48ch;}
+  .team-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:40px;}
+  .team-card{
+    border:1px solid var(--line); background:var(--bg);
+    padding:22px 18px; transition:border-color .15s, transform .15s;
+  }
+  .team-card:hover{border-color:var(--blue); transform:translateY(-3px);}
+  .team-card .avatar{width:52px; height:52px; margin-bottom:16px;}
+  .team-card h4{font-family:'Archivo Black'; font-size:1rem; margin-bottom:6px;}
+  .team-card .tag{
+    display:inline-block; color:var(--blue); font-size:.75rem; font-weight:700;
+    border:1px solid var(--line); border-radius:20px; padding:3px 10px; margin-bottom:12px;
+  }
+  .team-card p{color:var(--ink-dim); font-size:.86rem; margin:0 0 16px;}
+  .team-card a{color:var(--gold); font-size:.85rem; font-weight:600; text-decoration:none;}
+  .team-card a:hover{text-decoration:underline;}
+  @media (max-width:760px){ .team-grid{grid-template-columns:repeat(2,1fr);} }
+
+  .team-unified{
+    border:1px solid var(--line); background:var(--bg); margin-top:40px;
+    padding:44px 36px; text-align:center;
+  }
+  .avatar-row{display:flex; justify-content:center; gap:18px; flex-wrap:wrap; margin-bottom:28px;}
+  .avatar-row .who{display:flex; flex-direction:column; align-items:center; gap:10px;}
+  .avatar-row .avatar{width:56px; height:56px;}
+  .avatar-row span{font-size:.85rem; color:var(--ink-dim); font-weight:600;}
+  .team-unified p.statement{max-width:56ch; margin:0 auto 28px; color:var(--ink-dim); font-size:1.02rem;}
+
+  /* FAQ */
+  .faq{border-top:1px solid var(--line);}
+  .faq h2{font-size:2.1rem; margin-bottom:36px;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-item summary{
+    padding:20px 4px; cursor:pointer; font-weight:600; font-size:1rem;
+    list-style:none; display:flex; justify-content:space-between; align-items:center; gap:20px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:"+"; font-family:'Archivo Black'; color:var(--blue); font-size:1.3rem; flex-shrink:0;}
+  .faq-item[open] summary::after{content:"–";}
+  .faq-item p{color:var(--ink-dim); padding:0 4px 22px; margin:0; max-width:62ch; font-size:.98rem;}
+
+  /* BARRA STICKY MOBILE */
+  .mobile-cta{
+    display:none; position:fixed; left:0; right:0; bottom:0; z-index:30;
+    background:rgba(8,11,27,.94); backdrop-filter:blur(10px); border-top:1px solid var(--line);
+    padding:12px 20px calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+  .mobile-cta a{display:block; text-align:center;}
+  @media (max-width:700px){ .mobile-cta{display:block;} body{padding-bottom:64px;} }
+
   footer{border-top:1px solid var(--line); padding:40px 0; padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));}
   footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
   footer .brand{font-size:.95rem;}
@@ -166,6 +228,7 @@
     <nav class="links">
       <a href="#servicios">Servicios</a>
       <a href="#equipo">Equipo</a>
+      <a href="#faq">Dudas</a>
       <a href="#reseñas">Reseñas</a>
       <a href="#visitanos">Visitanos</a>
     </nav>
@@ -193,6 +256,35 @@
   </div>
 </section>
 
+<section class="why">
+  <div class="wrap">
+    <div class="kicker">Por qué elegirnos</div>
+    <h2 style="font-size:2.1rem; max-width:14ch;">Lo que nos distingue en Dock Sud</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#6E8CFF" stroke-width="1.6"><path d="M12 2l2.6 5.9L21 9l-4.5 4.4L17.6 20 12 16.8 6.4 20l1.1-6.6L3 9l6.4-1.1z"/></svg>
+        <h4>5.0 de rating</h4>
+        <p>579 reseñas verificadas en Fresha, sin promedios inflados.</p>
+      </div>
+      <div class="why-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#6E8CFF" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        <h4>Equipo estable</h4>
+        <p>Los mismos 4 barberos, así siempre sabés quién te va a atender.</p>
+      </div>
+      <div class="why-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#6E8CFF" stroke-width="1.6"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+        <h4>Turnos online</h4>
+        <p>Reservá en segundos desde Fresha, sin llamadas ni esperas.</p>
+      </div>
+      <div class="why-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#6E8CFF" stroke-width="1.6"><path d="M12 21s-7-4.4-9.5-9C1 8.5 3 5 6.5 5c2 0 3.3 1 3.5 2.5C10.2 6 11.5 5 13.5 5 17 5 19 8.5 17.5 12 15 16.6 8 21 12 21z"/></svg>
+        <h4>Fidelidad real</h4>
+        <p>Más de 6.000 turnos hechos, muchos clientes vienen cada 2 semanas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="about" id="nosotros">
   <div class="wrap grid">
     <div>
@@ -201,12 +293,24 @@
     </div>
     <div>
       <p>Ofrecemos servicios de corte, color y belleza en un ambiente reconfortante y amigable, para que vivas la experiencia del salón al máximo. Nuestra profesionalidad y experiencia nos avalan.</p>
-      <div class="team-mini">
-        <div class="who"><div class="avatar">D</div> Diego</div>
-        <div class="who"><div class="avatar">M</div> Martín</div>
-        <div class="who"><div class="avatar">JP</div> Juampi</div>
-        <div class="who"><div class="avatar">JD</div> Juando</div>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="equipo">
+  <div class="wrap">
+    <div class="kicker">El equipo</div>
+    <h2>Conocé a tu barbero</h2>
+    <p class="sub">Corte, barba, afeitado y color: los cuatro manejan el menú completo con el mismo estándar.</p>
+    <div class="team-unified">
+      <div class="avatar-row">
+        <div class="who"><div class="avatar">D</div><span>Diego</span></div>
+        <div class="who"><div class="avatar">M</div><span>Martín</span></div>
+        <div class="who"><div class="avatar">JP</div><span>Juampi</span></div>
+        <div class="who"><div class="avatar">JD</div><span>Juando</span></div>
       </div>
+      <p class="statement">Detrás de las 579 reseñas y los más de 6.000 turnos está este equipo de cuatro. No hace falta elegir "al mejor" — cualquiera te va a dejar bien. Reservá según el horario que te quede cómodo.</p>
+      <a class="btn" href="https://www.fresha.com/es/a/juandominicano-dock-sud-cni-25-de-mayo-1078-tidsn6mk/all-offer?menu=true&pId=592402" target="_blank" rel="noopener">Reservar turno</a>
     </div>
   </div>
 </section>
@@ -251,7 +355,7 @@
 <section class="reviews" id="reseñas">
   <div class="wrap">
     <div>
-      <div class="kicker" id="equipo">Lo que dicen</div>
+      <div class="kicker">Lo que dicen</div>
       <h2>579 reseñas, 5.0 de rating</h2>
       <p style="color:var(--ink-dim); margin-top:14px; max-width:44ch;">Los cortes premium y el afeitado tradicional son los más valorados. Los clientes destacan la atención al detalle y un ambiente donde todos se sienten bienvenidos.</p>
     </div>
@@ -300,6 +404,31 @@
   </div>
 </section>
 
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="kicker">Dudas frecuentes</div>
+    <h2>Antes de venir</h2>
+    <div>
+      <details class="faq-item" open>
+        <summary>¿Cómo reservo un turno?</summary>
+        <p>Tocá "Reservar turno", elegí el servicio, el barbero y el horario que más te convenga en Fresha. Confirmás y listo, no hace falta llamar.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Puedo elegir barbero?</summary>
+        <p>Sí, en el sistema de reservas podés seleccionar entre Diego, Martín, Juampi o Juando según disponibilidad.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué pasa si llego tarde?</summary>
+        <p>Tenés 10 minutos de tolerancia. Pasado ese tiempo, puede que tengamos que reprogramar tu turno para no atrasar al resto.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Aceptan pagos con tarjeta?</summary>
+        <p>Sí, aceptamos efectivo, tarjeta y transferencia.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="brand">JUAN<span style="color:var(--blue);">DOMINICANO</span></div>
@@ -309,6 +438,10 @@
     </div>
   </div>
 </footer>
+
+<div class="mobile-cta">
+  <a class="btn" href="https://www.fresha.com/es/a/juandominicano-dock-sud-cni-25-de-mayo-1078-tidsn6mk/all-offer?menu=true&pId=592402" target="_blank" rel="noopener">Reservar turno</a>
+</div>
 
 </body>
 </html>
